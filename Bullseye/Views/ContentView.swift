@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Bullseye
 //
-//  Created by Morgan Edmonds on 3/6/21.
+//  Created by Morgan Duverney on 3/6/21.
 //
 
 import SwiftUI
@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var alertIsVisible: Bool = false
+    @State private var sliderValue: Double = 50.0
+    @State private var game: Game = Game()
     
     var body: some View {
         VStack {
@@ -19,14 +21,14 @@ struct ContentView: View {
                 .multilineTextAlignment(.center)
                 .lineSpacing(4.0)
                 .font(.footnote)
-            Text("89")
+            Text(String(game.target))
                 .kerning(-1.0)
                 .fontWeight(.black)
                 .font(.largeTitle)
             HStack {
                 Text("1")
                     .bold()
-                Slider(value: .constant(50), in: 1.0...100.0)
+                Slider(value: self.$sliderValue, in: 1.0...100.0)
                 Text("100")
                     .bold()
             }
@@ -38,7 +40,8 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
             }
             .alert(isPresented: $alertIsVisible, content: {
-                return Alert(title: Text("Hello there!"), message: Text("This is my first alert."), dismissButton: .default(Text("Awesome!")))
+                let roundedValue: Int = Int(self.sliderValue.rounded())
+                return Alert(title: Text("Hello there!"), message: Text("The slider's value is \(roundedValue). \n" + "You scored \(self.game.points(sliderValue: roundedValue)) points this round!"), dismissButton: .default(Text("Dismiss")))
             })
         }
     }
