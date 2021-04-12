@@ -13,6 +13,7 @@
 		D00A7AE625F41EAB00A21E2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D00A7AE525F41EAB00A21E2A /* Preview Assets.xcassets */; };
 		D7FAA6732620ED9700C0B9DB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA6722620ED9700C0B9DB /* Game.swift */; };
 		D7FAA67C262224F100C0B9DB /* BullseyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA67B262224F100C0B9DB /* BullseyeTests.swift */; };
+		D7FAA6862624EF4400C0B9DB /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA6852624EF4300C0B9DB /* TextViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		D7FAA679262224F100C0B9DB /* BullseyeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullseyeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7FAA67B262224F100C0B9DB /* BullseyeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullseyeTests.swift; sourceTree = "<group>"; };
 		D7FAA67D262224F100C0B9DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7FAA6852624EF4300C0B9DB /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				D00A7AE025F41EAA00A21E2A /* ContentView.swift */,
+				D7FAA6852624EF4300C0B9DB /* TextViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D00A7AE125F41EAA00A21E2A /* ContentView.swift in Sources */,
+				D7FAA6862624EF4400C0B9DB /* TextViews.swift in Sources */,
 				D7FAA6732620ED9700C0B9DB /* Game.swift in Sources */,
 				D00A7ADF25F41EAA00A21E2A /* BullseyeApp.swift in Sources */,
 			);
