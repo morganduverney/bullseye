@@ -75,7 +75,10 @@ struct HitMeButtonView: View {
             .overlay(RoundedRectangle(cornerRadius: 21.0).strokeBorder(Color.white, lineWidth: 2.0))
             .alert(isPresented: $alertIsVisible, content: {
                 let roundedValue: Int = Int(self.sliderValue.rounded())
-                return Alert(title: Text("Hello there!"), message: Text("The slider's value is \(roundedValue). \n" + "You scored \(self.game.points(sliderValue: roundedValue)) points this round!"), dismissButton: .default(Text("Dismiss")))
+                let points = self.game.points(sliderValue: roundedValue)
+                return Alert(title: Text("Hello there!"), message: Text("The slider's value is \(roundedValue). \n" + "You scored \(points) points this round!"), dismissButton: .default(Text("Dismiss")) {
+                    game.startNewRound(points: points)
+                })
             })
     }
 }
