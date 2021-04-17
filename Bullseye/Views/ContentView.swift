@@ -36,8 +36,8 @@ struct InstructionView: View {
     var body: some View {
         VStack {
             InstructionText(text: "Put the bullesye as close as you can to")
-                .padding(.leading, 30.0)
-                .padding(.trailing, 30.0)
+                .padding(.leading, 30)
+                .padding(.trailing, 30)
             BigNumberText(text: String(game.target))
         }
     }
@@ -71,15 +71,15 @@ struct HitMeButtonView: View {
                 .bold()
                 .font(.title3)
         }
-            .padding(20.0)
+            .padding(20)
             .background(ZStack {
                 Color("ButtonColor")
                 LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
             })
             .foregroundColor(Color("ButtonTextColor"))
-            .cornerRadius(21.0)
-            .overlay(RoundedRectangle(cornerRadius: 21.0)
-            .strokeBorder(Color.white, lineWidth: 2.0))
+            .cornerRadius(Constants.General.cornerRadius)
+            .overlay(RoundedRectangle(cornerRadius: Constants.General.cornerRadius)
+                        .strokeBorder(Color.white, lineWidth: Constants.General.strokeLineWidth))
     }
 }
 

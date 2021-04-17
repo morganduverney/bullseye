@@ -40,7 +40,6 @@ struct SliderText: View {
         Text(text)
             .bold()
             .foregroundColor(Color("TextColor"))
-            .frame(width: 35.0)
     }
 }
 
@@ -80,7 +79,7 @@ struct ButtonText: View {
             .padding()
             .frame(maxWidth: .infinity)
             .background(Color.accentColor)
-            .cornerRadius(12.0)
+            .cornerRadius(Constants.General.cornerRadius)
     }
 }
 
