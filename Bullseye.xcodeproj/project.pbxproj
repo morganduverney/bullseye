@@ -16,6 +16,7 @@
 		D7FAA6862624EF4400C0B9DB /* TextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA6852624EF4300C0B9DB /* TextViews.swift */; };
 		D7FAA68C2625F7E800C0B9DB /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA68B2625F7E800C0B9DB /* RoundedViews.swift */; };
 		D7FAA6902629047E00C0B9DB /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA68F2629047E00C0B9DB /* BackgroundView.swift */; };
+		D7FAA696262B178400C0B9DB /* PointsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FAA695262B178400C0B9DB /* PointsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		D7FAA6852624EF4300C0B9DB /* TextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViews.swift; sourceTree = "<group>"; };
 		D7FAA68B2625F7E800C0B9DB /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		D7FAA68F2629047E00C0B9DB /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		D7FAA695262B178400C0B9DB /* PointsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				D7FAA6852624EF4300C0B9DB /* TextViews.swift */,
 				D7FAA68B2625F7E800C0B9DB /* RoundedViews.swift */,
 				D7FAA68F2629047E00C0B9DB /* BackgroundView.swift */,
+				D7FAA695262B178400C0B9DB /* PointsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				D00A7AE125F41EAA00A21E2A /* ContentView.swift in Sources */,
 				D7FAA68C2625F7E800C0B9DB /* RoundedViews.swift in Sources */,
 				D7FAA6862624EF4400C0B9DB /* TextViews.swift in Sources */,
+				D7FAA696262B178400C0B9DB /* PointsView.swift in Sources */,
 				D7FAA6732620ED9700C0B9DB /* Game.swift in Sources */,
 				D00A7ADF25F41EAA00A21E2A /* BullseyeApp.swift in Sources */,
 			);

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @State private var alertIsVisible: Bool = false
     @State private var sliderValue: Double = 50.0
     @State private var game: Game = Game()
@@ -17,11 +16,16 @@ struct ContentView: View {
         ZStack {
             BackgroundView(game: $game)
             VStack {
-                InstructionView(game: $game).padding(.bottom, 100.0)
-                HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                InstructionView(game: $game).padding(.bottom, alertIsVisible ? 0 : 100)
+                if alertIsVisible {
+                    PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                } else {
+                    HitMeButtonView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                }
             }
-            SliderView(sliderValue: $sliderValue)
-
+            if !alertIsVisible {
+                SliderView(sliderValue: $sliderValue)
+            }
         }
     }
 }
@@ -59,7 +63,9 @@ struct HitMeButtonView: View {
     
     var body: some View {
         Button(action: {
-            self.alertIsVisible = true
+            withAnimation() {
+                self.alertIsVisible = true
+            }
         }) {
             Text("Hit me".uppercased())
                 .bold()
@@ -72,14 +78,8 @@ struct HitMeButtonView: View {
             })
             .foregroundColor(Color("ButtonTextColor"))
             .cornerRadius(21.0)
-            .overlay(RoundedRectangle(cornerRadius: 21.0).strokeBorder(Color.white, lineWidth: 2.0))
-            .alert(isPresented: $alertIsVisible, content: {
-                let roundedValue: Int = Int(self.sliderValue.rounded())
-                let points = self.game.points(sliderValue: roundedValue)
-                return Alert(title: Text("Hello there!"), message: Text("The slider's value is \(roundedValue). \n" + "You scored \(points) points this round!"), dismissButton: .default(Text("Dismiss")) {
-                    game.startNewRound(points: points)
-                })
-            })
+            .overlay(RoundedRectangle(cornerRadius: 21.0)
+            .strokeBorder(Color.white, lineWidth: 2.0))
     }
 }
 
