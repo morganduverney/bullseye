@@ -15,5 +15,7 @@ enum Constants {
         public static let roundedViewHeight = CGFloat(56.0)
         public static let roundRectViewWidth = CGFloat(68.0)
         public static let roundRectViewHeight = CGFloat(56.0)
+        public static let scoreColumnWidth = CGFloat(100)
+        public static let dateColumnWidth = CGFloat(100)
     }
 }

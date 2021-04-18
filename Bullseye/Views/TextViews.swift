@@ -83,6 +83,51 @@ struct ButtonText: View {
     }
 }
 
+struct ScoreText: View {
+    var score: Int
+    
+    var body: some View {
+        Text(String(score))
+            .font(.title3)
+            .fontWeight(.bold)
+            .foregroundColor(Color("TextColor"))
+    }
+}
+
+struct DateText: View {
+    var date: Date
+    
+    var body: some View {
+        Text(date, style: .time)
+            .font(.title3)
+            .fontWeight(.bold)
+            .foregroundColor(Color("TextColor"))
+    }
+}
+
+struct RowHeaderText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text.uppercased())
+            .kerning(1.5)
+            .bold()
+            .font(.caption)
+            .foregroundColor(Color("TextColor"))
+    }
+}
+
+struct TitleText: View {
+    var text: String
+    
+    var body: some View {
+        Text(text.uppercased())
+            .kerning(2.0)
+            .fontWeight(.black)
+            .font(.title)
+            .foregroundColor(Color("TextColor"))
+    }
+}
 
 struct TextView_Previews: PreviewProvider {
     static var previews: some View {
@@ -92,6 +137,8 @@ struct TextView_Previews: PreviewProvider {
             LabelText(text: "Score")
             BodyText(text: "You have earned 200 points! \n 🎉🎉🎉")
             ButtonText(text: "Start New Round")
+            TitleText(text: "Leaderboard")
+            RowHeaderText(text: "header")
         }
         .padding()
     }

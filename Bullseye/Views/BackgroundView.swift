@@ -33,7 +33,7 @@ struct TopView: View {
                 RoundedImageViewStroked(systemName: "arrow.counterclockwise")
             }
             Spacer()
-            RoundedImageViewStroked(systemName: "list.bullet")
+            RoundedImageViewFilled(systemName: "list.bullet")
         }
     }
 }
