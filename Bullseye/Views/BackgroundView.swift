@@ -24,6 +24,7 @@ struct BackgroundView: View {
 struct TopView: View {
     @Binding var game: Game
     @Environment(\.colorScheme) var colorScheme
+    @State private var leaderboardIsPresented = false
 
     var body: some View {
         HStack {
@@ -33,7 +34,11 @@ struct TopView: View {
                 RoundedImageViewStroked(systemName: "arrow.counterclockwise")
             }
             Spacer()
-            RoundedImageViewFilled(systemName: "list.bullet")
+            Button(action: {leaderboardIsPresented = true}) {
+                RoundedImageViewFilled(systemName: "list.bullet")
+            }.sheet(isPresented: $leaderboardIsPresented, onDismiss: {}, content: {
+                LeaderboardView(leaderboardIsPresented: $leaderboardIsPresented)
+            })
         }
     }
 }

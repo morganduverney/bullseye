@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct LeaderboardView: View {
+    @Binding var leaderboardIsPresented: Bool
+    
     var body: some View {
         ZStack {
             Color("BackgroundColor").edgesIgnoringSafeArea(.all)
             VStack(spacing: 10) {
-                HeaderView()
+                HeaderView(leaderboardIsPresented: $leaderboardIsPresented)
+                    .padding(.bottom, 10)
                 LabelView()
                 RowView(index: 1, score: 200, date: Date())
             }
+            .frame(maxWidth: 500)
+            .padding()
         }
     }
 }
@@ -41,12 +46,24 @@ struct RowView: View {
 }
 
 struct HeaderView: View {
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Binding var leaderboardIsPresented: Bool
+    
     var body: some View {
         ZStack {
-            TitleText(text: "Leaderboard")
+            HStack {
+                if verticalSizeClass == .regular && horizontalSizeClass == .compact {
+                    TitleText(text: "Leaderboard").padding(.trailing, Constants.General.roundedViewHeight)
+                } else {
+                    TitleText(text: "Leaderboard")
+                }
+            }
             HStack {
                 Spacer()
-                RoundedImageViewFilled(systemName: "xmark").padding(.trailing, 50)
+                Button(action: {leaderboardIsPresented = false}) {
+                    RoundedImageViewFilled(systemName: "xmark")
+                }
             }
         }
     }
@@ -65,7 +82,12 @@ struct LabelView: View {
 }
 
 struct LeaderboardView_Previews: PreviewProvider {
+    static private var leaderboardIsPresented = Binding.constant(false)
+    
     static var previews: some View {
-        LeaderboardView().previewLayout(.fixed(width: 568, height: 320))
+        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented)
+        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented).previewLayout(.fixed(width: 568, height: 320))
+        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/).previewLayout(.fixed(width: 568, height: 320))
     }
 }
