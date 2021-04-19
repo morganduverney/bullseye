@@ -37,7 +37,7 @@ struct TopView: View {
             Button(action: {leaderboardIsPresented = true}) {
                 RoundedImageViewFilled(systemName: "list.bullet")
             }.sheet(isPresented: $leaderboardIsPresented, onDismiss: {}, content: {
-                LeaderboardView(leaderboardIsPresented: $leaderboardIsPresented)
+                LeaderboardView(leaderboardIsPresented: $leaderboardIsPresented, game: $game)
             })
         }
     }

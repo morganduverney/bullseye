@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LeaderboardView: View {
     @Binding var leaderboardIsPresented: Bool
+    @Binding var game: Game
     
     var body: some View {
         ZStack {
@@ -17,7 +18,14 @@ struct LeaderboardView: View {
                 HeaderView(leaderboardIsPresented: $leaderboardIsPresented)
                     .padding(.bottom, 10)
                 LabelView()
-                RowView(index: 1, score: 200, date: Date())
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(game.leaderboardEntries.indices) { i in
+                            let leaderboardEntry = game.leaderboardEntries[i]
+                            RowView(index: i+1, score: leaderboardEntry.score, date: leaderboardEntry.date)
+                        }
+                    }
+                }
             }
             .frame(maxWidth: 500)
             .padding()
@@ -83,11 +91,12 @@ struct LabelView: View {
 
 struct LeaderboardView_Previews: PreviewProvider {
     static private var leaderboardIsPresented = Binding.constant(false)
+    static private var game = Binding.constant(Game())
     
     static var previews: some View {
-        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented)
-        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented).previewLayout(.fixed(width: 568, height: 320))
-        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
-        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/).previewLayout(.fixed(width: 568, height: 320))
+        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented, game: game)
+        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented, game: game).previewLayout(.fixed(width: 568, height: 320))
+        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented, game: game).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
+        LeaderboardView(leaderboardIsPresented: leaderboardIsPresented, game: game).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/).previewLayout(.fixed(width: 568, height: 320))
     }
 }
